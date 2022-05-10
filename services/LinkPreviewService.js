@@ -1,18 +1,18 @@
 
-const puppeteer = require("puppeteer-extra");
-const pluginStealth = require("puppeteer-extra-plugin-stealth");
+const puppeteer = require("puppeteer");
+// const pluginStealth = require("puppeteer-extra-plugin-stealth");
 
 export class LinkPreviewService   {
     browser = undefined;
 
     constructor(
     ) { 
-        console.log('creating browser instance...')
-        puppeteer.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'] }).then((obj) => {
+        return (async () => {
+
+            const obj = await puppeteer.launch({ headless: true,dumpio: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'] });
             this.browser = obj;
-        });
-        puppeteer.use(pluginStealth());
-        console.log('browser instance ready...')
+            return this;
+        })();
     }
 
     getMetaData = async (url) => {
@@ -26,9 +26,10 @@ export class LinkPreviewService   {
 
             const page = await this.browser.newPage();
             page.setUserAgent("facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)");
-            await page.goto(url);
+            await page.goto(url)
             await page.waitForSelector('meta');
-            let data = await this.readTags(page);            
+
+            let data = await this.readTags(page); 
             await page.close();
 
             const preview = {
@@ -46,11 +47,12 @@ export class LinkPreviewService   {
         }
     }
 
-    #readTags = async (page) => {
-        let preview = {};
-
-        const img = await page.evaluate(async () => {
+    readTags = async (page) => {
+        
+        const preview = await page.evaluate(() => {
+            let preview = {};
             const metas = document.getElementsByTagName('meta');
+
             for (let i = 0; i < metas.length; i++) {
                 if (metas[i].getAttribute('property') == 'og:image') {
                     preview.imgUrl = metas[i].getAttribute('content');
@@ -64,8 +66,10 @@ export class LinkPreviewService   {
                     preview.title = metas[i].getAttribute('content');
                 }
             }
+
             return preview;
         });
-        return img;
+        
+        return preview;
     };    
 }
