@@ -2,20 +2,26 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Render.module.css";
 import { LinkPreviewService } from "../services/LinkPreviewService";
+import contactus from "../public/contactus.jpg";
 
 export async function getServerSideProps() {
   // console.log('calling***********')
   const previewService = await new LinkPreviewService();
-  const val = await previewService.getMetaData("https://www.youtube.com/watch?v=_6M4rX-PYzs")
-  console.log(val);
-  
+  const previews = [];
+  previews.push(
+    await previewService.getMetaData(
+      "https://www.youtube.com/watch?v=_6M4rX-PYzs"
+    )
+  );
+  // previews.push(await previewService.getMetaData("https://www.youtube.com/watch?v=_6M4rX-PYzs"))
+  // previews.push(await previewService.getMetaData("https://www.youtube.com/watch?v=_6M4rX-PYzs"))
+
   return {
     props: {
       coverImgUrl: "",
       profileImgUrl: "",
       aboutMe: "",
-      box1Urls: ["https://www.youtube.com/watch?v=_6M4rX-PYzs", "https://www.youtube.com/watch?v=_xVi4j5A-go"
-      ,"https://www.youtube.com/watch?v=j9VOQZX5btA"],
+      box1Urls: previews,
       box2Urls: [],
       otherDetails: "",
       linkedIn: "",
@@ -103,39 +109,46 @@ const Render = (props) => {
           </div>
         </div>
       </div>
-      <br/>
+      <br />
       <div className="d-flex">
-        <div className="card">
+        <div className="card" style={{ height: "10vw" }}>
+          <img src={props.box1Urls[0].image} />
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
+            <h5 className="card-title">{props.box1Urls[0].title}</h5>
+            <p className="card-text">{props.box1Urls[0].description}</p>
+            <a href="#" className="btn btn-primary">
+              Go somewhere
+            </a>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div className="card-group">
+        <div className="card">
+          <img src={props.box1Urls[0].image} />
+          <div className="card-body">
+            <h5 className="card-title">{props.box1Urls[0].title}</h5>
+            <p className="card-text">{props.box1Urls[0].description}</p>
             <a href="#" className="btn btn-primary">
               Go somewhere
             </a>
           </div>
         </div>
         <div className="card ms-1">
+          <img src={props.box1Urls[0].image} />
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
+            <h5 className="card-title">{props.box1Urls[0].title}</h5>
+            <p className="card-text">{props.box1Urls[0].description}</p>
             <a href="#" className="btn btn-primary">
               Go somewhere
             </a>
           </div>
         </div>
         <div className="card  ms-1">
+          <img src={props.box1Urls[0].image} />
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
+            <h5 className="card-title">{props.box1Urls[0].title}</h5>
+            <p className="card-text">{props.box1Urls[0].description}</p>
             <a href="#" className="btn btn-primary">
               Go somewhere
             </a>
@@ -146,7 +159,7 @@ const Render = (props) => {
       <div className="d-flex">
         <div className="card ">
           <div className="card-body">
-            <h5 className="card-title">Contact Us</h5>
+            <h5 className="card-title">Other details</h5>
             My background is from mechanical and renewable energy engineering
             since I did my masters college degree in that. But my passion lies
             in the fields of Economics and Political Science in which I studied
@@ -159,6 +172,15 @@ const Render = (props) => {
             personal problem, I suggest reaching out to a therapist for that.
             For complaints, report them to suitable authorities.
           </div>
+        </div>
+      </div>
+      <br />
+      <div className="card text-center bg-light">
+        <div className="card-body">
+          <h5 className="card-title">Contact Us</h5>
+          Email: e_pratik@yahoo.co.in <br />
+          Phone: 9538550218 <br />
+          Address: xxxxxxxxxxxxxxxxxx <br />
         </div>
       </div>
     </div>
