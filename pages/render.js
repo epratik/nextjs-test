@@ -95,6 +95,7 @@ const Render = (props) => {
         <div className="card ">
           <div className="card-body">
             <h5 className="card-title">About Me</h5>
+            <p class="card-text fst-italic">
             My background is from mechanical and renewable energy engineering
             since I did my masters college degree in that. But my passion lies
             in the fields of Economics and Political Science in which I studied
@@ -106,12 +107,13 @@ const Render = (props) => {
             Please realise that I cannot respond and provide help for every
             personal problem, I suggest reaching out to a therapist for that.
             For complaints, report them to suitable authorities.
+            </p>
           </div>
         </div>
       </div>
       <br />
       <div className="d-flex">
-        <div className="card" style={{ height: "10vw" }}>
+        <div className="card">
           <img src={props.box1Urls[0].image} />
           <div className="card-body">
             <h5 className="card-title">{props.box1Urls[0].title}</h5>
@@ -159,7 +161,7 @@ const Render = (props) => {
       <div className="d-flex">
         <div className="card ">
           <div className="card-body">
-            <h5 className="card-title">Other details</h5>
+            <h5 className="card-title">More on me</h5>
             My background is from mechanical and renewable energy engineering
             since I did my masters college degree in that. But my passion lies
             in the fields of Economics and Political Science in which I studied
@@ -175,14 +177,32 @@ const Render = (props) => {
         </div>
       </div>
       <br />
-      <div className="card text-center bg-light">
+      <div class="card mb-3" >
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="../contactus.jpg" class="img-fluid rounded-start" alt="..." />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Contact Us</h5>
+              <p class="card-text fst-italic">
+                Email: e_pratik@yahoo.co.in <br />
+                Phone: 9538550218 <br />
+                Address: xxxxxxxxxxxxxxxxxx <br />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <div className="card">
+        <img src="https://venngage-wordpress.s3.amazonaws.com/uploads/2018/09/Colorful-Circle-Simple-Background-Image-1.jpg"/>
         <div className="card-body">
           <h5 className="card-title">Contact Us</h5>
           Email: e_pratik@yahoo.co.in <br />
           Phone: 9538550218 <br />
           Address: xxxxxxxxxxxxxxxxxx <br />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

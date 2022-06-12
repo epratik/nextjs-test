@@ -14,3 +14,34 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
+.controls {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 80px;
+}
+
+
+.crop-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 80px;
+}
+
+.button-area {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: black;
+  color: white;
+  border: 1px solid yellow;
+  font-size: 20px;
+}
