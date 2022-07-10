@@ -2,34 +2,44 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Render.module.css";
 import { LinkPreviewService } from "../services/LinkPreviewService";
+import { getSiteData } from "../services/dynamoDbPut";
 import contactus from "../public/contactus.jpg";
 
-export async function getServerSideProps() {
-  // console.log('calling***********')
+export async function getServerSideProps({ req }) {
+
+  const subdomain = req.headers.host.split('.')[0];
+
+  const siteData = await getSiteData(subdomain)
+
   const previewService = await new LinkPreviewService();
   const previews = [];
   previews.push(
     await previewService.getMetaData(
-      "https://www.youtube.com/watch?v=_6M4rX-PYzs"
+      siteData.Item.youtube_link1
     )
   );
+  previews.push(
+    await previewService.getMetaData(
+      siteData.Item.youtube_link2
+    )
+  );
+  previews.push(
+    await previewService.getMetaData(
+      siteData.Item.youtube_link3
+    )
+  );
+  previews.push(
+    await previewService.getMetaData(
+      siteData.Item.youtube_link4
+    )
+  );
+
+  siteData.previews = previews
   // previews.push(await previewService.getMetaData("https://www.youtube.com/watch?v=_6M4rX-PYzs"))
   // previews.push(await previewService.getMetaData("https://www.youtube.com/watch?v=_6M4rX-PYzs"))
 
   return {
-    props: {
-      coverImgUrl: "",
-      profileImgUrl: "",
-      aboutMe: "",
-      box1Urls: previews,
-      box2Urls: [],
-      otherDetails: "",
-      linkedIn: "",
-      youTube: "",
-      instagram: "",
-      twitter: "",
-      facebook: "",
-    },
+    props: siteData
   };
 }
 
@@ -114,10 +124,10 @@ const Render = (props) => {
       <br />
       <div className="d-flex">
         <div className="card">
-          <img src={props.box1Urls[0].image} />
+          <img src={props.previews[0].image} />
           <div className="card-body">
-            <h5 className="card-title">{props.box1Urls[0].title}</h5>
-            <p className="card-text">{props.box1Urls[0].description}</p>
+            <h5 className="card-title">{props.previews[0].title}</h5>
+            <p className="card-text">{props.previews[0].description}</p>
             <a href="#" className="btn btn-primary">
               Go somewhere
             </a>
@@ -127,30 +137,30 @@ const Render = (props) => {
       <br />
       <div className="card-group">
         <div className="card">
-          <img src={props.box1Urls[0].image} />
+          <img src={props.previews[0].image} />
           <div className="card-body">
-            <h5 className="card-title">{props.box1Urls[0].title}</h5>
-            <p className="card-text">{props.box1Urls[0].description}</p>
+            <h5 className="card-title">{props.previews[0].title}</h5>
+            <p className="card-text">{props.previews[0].description}</p>
             <a href="#" className="btn btn-primary">
               Go somewhere
             </a>
           </div>
         </div>
         <div className="card ms-1">
-          <img src={props.box1Urls[0].image} />
+          <img src={props.previews[0].image} />
           <div className="card-body">
-            <h5 className="card-title">{props.box1Urls[0].title}</h5>
-            <p className="card-text">{props.box1Urls[0].description}</p>
+            <h5 className="card-title">{props.previews[0].title}</h5>
+            <p className="card-text">{props.previews[0].description}</p>
             <a href="#" className="btn btn-primary">
               Go somewhere
             </a>
           </div>
         </div>
         <div className="card  ms-1">
-          <img src={props.box1Urls[0].image} />
+          <img src={props.previews[0].image} />
           <div className="card-body">
-            <h5 className="card-title">{props.box1Urls[0].title}</h5>
-            <p className="card-text">{props.box1Urls[0].description}</p>
+            <h5 className="card-title">{props.previews[0].title}</h5>
+            <p className="card-text">{props.previews[0].description}</p>
             <a href="#" className="btn btn-primary">
               Go somewhere
             </a>

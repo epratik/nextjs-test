@@ -35,7 +35,8 @@ export class LinkPreviewService   {
             const preview = {
                 title: data.title,
                 description: data.description,
-                image: data.imgUrl
+                image: data.imgUrl,
+                url: url
             }
 
             return preview;
