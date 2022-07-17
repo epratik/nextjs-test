@@ -167,55 +167,55 @@ const Create = (props) => {
           <div>
             {/* <img src={profilePicCrop} /> */}
 
-            <h1 class="display-4">Fill up the details for your web page</h1>
+            <h1 className="display-4">Fill up the details for your web page</h1>
             <br />
-            <label for="business_name" class="form-label">
+            <label htmlFor="business_name" className="form-label">
               Your name or business name, this appears below the profile picture
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               name="business_name"
               onChange={(event) => setFields(event)}
             ></input>
             <br />
             <div>
-              <label className="form-label" for="file">
+              <label className="form-label" htmlFor="file">
                 {" "}
                 Choose a file for cover picture{" "}
               </label>
               <input
                 type="file"
-                class="form-control"
+                className="form-control"
                 name="coverPic"
                 onChange={uploadCoverToClient}
               />
             </div>
             <br />
             <div>
-              <label className="form-label" for="file">
+              <label className="form-label" htmlFor="file">
                 {" "}
                 Choose a file for profile picture{" "}
               </label>
               <input
                 type="file"
-                class="form-control"
+                className="form-control"
                 name="profilePic"
                 onChange={uploadCoverToClient}
               />
             </div>
             <br />
-            <label for="header_2" class="form-label">
+            <label htmlFor="header_2" className="form-label">
               Header for first text block (ex. About Me)
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               name="header_2"
               onChange={(event) => setFields(event)}
             ></input>
             <br />
-            <label for="abt_me" class="form-label">
+            <label htmlFor="abt_me" className="form-label">
               Describe your self, site or business, this appears after the
               header above (upto 700 characters)
             </label>
@@ -231,17 +231,17 @@ const Create = (props) => {
               ></textarea>
             </div>
             <br />
-            <label for="header_3" class="form-label">
+            <label htmlFor="header_3" className="form-label">
               Header for second text block (ex. Other details)
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               name="header_3"
               onChange={(event) => setFields(event)}
             ></input>
             <br />
-            <label for="other_det" class="form-label">
+            <label htmlFor="other_det" className="form-label">
               Based on the header above, provide description (upto 700
               characters)
             </label>
@@ -257,131 +257,131 @@ const Create = (props) => {
               ></textarea>
             </div>
             <br />
-            <div class="input-group">
-              <span class="input-group-text">Facebook Profile Link</span>
+            <div className="input-group">
+              <span className="input-group-text">Facebook Profile Link</span>
               <input
-                class="form-control"
+                className="form-control"
                 name="fb_link"
                 onChange={(event) => setFields(event)}
               ></input>
             </div>
             <br />
-            <div class="input-group">
-              <span class="input-group-text">Linkedin Profile Link</span>
+            <div className="input-group">
+              <span className="input-group-text">Linkedin Profile Link</span>
               <input
-                class="form-control"
+                className="form-control"
                 name="linkedin_link"
                 onChange={(event) => setFields(event)}
               ></input>
             </div>
             <br />
-            <div class="input-group">
-              <span class="input-group-text">Youtube Profile Link</span>
+            <div className="input-group">
+              <span className="input-group-text">Youtube Profile Link</span>
               <input
-                class="form-control"
+                className="form-control"
                 name="youtube_link"
                 onChange={(event) => setFields(event)}
               ></input>
             </div>
             <br />
-            <div class="input-group">
-              <span class="input-group-text">Twitter Profile Link</span>
+            <div className="input-group">
+              <span className="input-group-text">Twitter Profile Link</span>
               <input
-                class="form-control"
+                className="form-control"
                 name="youtube_link"
                 onChange={(event) => setFields(event)}
               ></input>
             </div>
             <br />
-            <div class="input-group">
-              <span class="input-group-text">Instagram Profile Link</span>
+            <div className="input-group">
+              <span className="input-group-text">Instagram Profile Link</span>
               <input
-                class="form-control"
+                className="form-control"
                 name="insta_link"
                 onChange={(event) => setFields(event)}
               ></input>
             </div>
             <br />
-            <label for="other_det" class="form-label">
+            <label htmlFor="other_det" className="form-label">
               Provide 4 links from your youtube channel, we will add previews of
               these to your page
             </label>
-            <div class="input-group">
-              <span class="input-group-text">Youtube Link 1</span>
+            <div className="input-group">
+              <span className="input-group-text">Youtube Link 1</span>
               <input
-                class="form-control"
+                className="form-control"
                 name="youtube_link1"
                 onChange={(event) => setFields(event)}
               ></input>
             </div>
             <br />
-            <div class="input-group">
-              <span class="input-group-text">Youtube Link 2</span>
+            <div className="input-group">
+              <span className="input-group-text">Youtube Link 2</span>
               <input
-                class="form-control"
+                className="form-control"
                 name="youtube_link2"
                 onChange={(event) => setFields(event)}
               ></input>
             </div>
             <br />
-            <div class="input-group">
-              <span class="input-group-text">Youtube Link 3</span>
+            <div className="input-group">
+              <span className="input-group-text">Youtube Link 3</span>
               <input
-                class="form-control"
+                className="form-control"
                 name="youtube_link3"
                 onChange={(event) => setFields(event)}
               ></input>
             </div>
             <br />
-            <div class="input-group">
-              <span class="input-group-text">Youtube Link 4</span>
+            <div className="input-group">
+              <span className="input-group-text">Youtube Link 4</span>
               <input
-                class="form-control"
+                className="form-control"
                 name="youtube_link4"
                 onChange={(event) => setFields(event)}
               ></input>
             </div>
             <br />
-            <div class="input-group">
-              <span class="input-group-text">Contact Email</span>
+            <div className="input-group">
+              <span className="input-group-text">Contact Email</span>
               <input
-                class="form-control"
+                className="form-control"
                 name="contact_email"
                 onChange={(event) => setFields(event)}
               ></input>
             </div>
             <br />
-            <div class="input-group">
-              <span class="input-group-text">Contact Phone</span>
+            <div className="input-group">
+              <span className="input-group-text">Contact Phone</span>
               <input
-                class="form-control"
+                className="form-control"
                 name="contact_phone"
                 onChange={(event) => setFields(event)}
               ></input>
             </div>
             <br />
-            <div class="input-group">
-              <span class="input-group-text">Contact Address</span>
+            <div className="input-group">
+              <span className="input-group-text">Contact Address</span>
               <input
-                class="form-control"
+                className="form-control"
                 name="contact_address"
                 onChange={(event) => setFields(event)}
               ></input>
             </div>
             <br />
-            <label for="other_det" class="form-label">
+            <label htmlFor="other_det" className="form-label">
               Provide the subdomain for your website. Remember this subdomain
               value, you will need to provide the same value everytime you
               modify this site.
             </label>
-            <div class="input-group">
-              <span class="input-group-text">www.</span>
+            <div className="input-group">
+              <span className="input-group-text">www.</span>
               <input
-                class="form-control"
+                className="form-control"
                 name="site_name"
                 onChange={(event) => setFields(event)}
               ></input>
-              <span class="input-group-text">.contenhub.com</span>
+              <span className="input-group-text">.contenhub.com</span>
             </div>
             <br />
             <button
@@ -391,7 +391,7 @@ const Create = (props) => {
             >
               {saveSpinner && (
                 <span
-                  class="spinner-border spinner-border-sm"
+                  className="spinner-border spinner-border-sm"
                   role="status"
                   aria-hidden="true"
                 />

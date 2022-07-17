@@ -11,6 +11,7 @@ RUN update-ca-certificates
 COPY . /app
 # RUN npm config set strict-ssl=false
 RUN npm install
+RUN npm build
 
 #Stage2- copy compiled source from stage 1 and install only prod dependencies.
 FROM node:14-slim AS stage2
@@ -46,7 +47,7 @@ CMD ["google-chrome-stable"]
 
 USER root
 WORKDIR /app
-COPY --from=stage1 ./app/dist ./dist
+COPY --from=stage1 ./app .
 #NOT COPIED .ENV FILE - ENVIROMENT VAR NEEDS TO BE PASSED IN DOCKER RUN COMMAND
 
 # COPY src/certificates /app

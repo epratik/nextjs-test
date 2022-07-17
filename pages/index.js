@@ -103,7 +103,7 @@ const Render = (props) => {
         <div className="card ">
           <div className="card-body">
             <h5 className="card-title">{props.Item.header_2}</h5>
-            <p class="card-text fst-italic">{props.Item.abt_me}</p>
+            <p className="card-text fst-italic">{props.Item.abt_me}</p>
           </div>
         </div>
       </div>
@@ -163,19 +163,19 @@ const Render = (props) => {
         </div>
       </div>
       <br />
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-md-4">
+      <div className="card mb-3">
+        <div className="row g-0">
+          <div className="col-md-4">
             <img
               src="../contactus.jpg"
-              class="img-fluid rounded-start"
+              className="img-fluid rounded-start"
               alt="..."
             />
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Contact Us</h5>
-              <p class="card-text fst-italic">
+          <div className="col-md-8">
+            <div className="card-body">
+              <h5 className="card-title">Contact Us</h5>
+              <p className="card-text fst-italic">
                 Email: {props.Item.contact_email} <br />
                 Phone: {props.Item.contact_phone} <br />
                 Address: {props.Item.contact_address} <br />
