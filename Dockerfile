@@ -47,7 +47,7 @@ CMD ["google-chrome-stable"]
 
 USER root
 WORKDIR /app
-COPY --from=stage1 ./app .
+COPY --from=stage1 ./app/.next ./.next
 #NOT COPIED .ENV FILE - ENVIROMENT VAR NEEDS TO BE PASSED IN DOCKER RUN COMMAND
 
 # COPY src/certificates /app
