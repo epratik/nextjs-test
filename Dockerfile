@@ -11,7 +11,7 @@ RUN update-ca-certificates
 COPY . /app
 # RUN npm config set strict-ssl=false
 RUN npm install
-RUN npm build
+RUN npm run build
 
 #Stage2- copy compiled source from stage 1 and install only prod dependencies.
 FROM node:14-slim AS stage2
