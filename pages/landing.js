@@ -36,19 +36,19 @@ const Landing = (props) => {
           <br />
           <div className="py-5">
             <h1 className="display-5 fw-bold">
-              Create a website for your youtube channel
+              Website for your youtube channel in 3 steps
             </h1>
             {/* <ul className="entry-content fs-4" style={{"list-style-type": "circle"}}>
               <li>Explore our categories to find and rate top content.</li>
               <li>Share curated lists on social media.</li>
               <li>Easy affiliate marketing, share lists of products.</li>
               </ul> */}
-            <p className="fs-4">
+            {/* <p className="fs-4">
               Contact us at{" "}
               <small>
                 <b>conten.help@gmail.com</b>
               </small>
-            </p>
+            </p> */}
             <button
               onClick={callSignIn}
               className="btn btn-primary btn-lg"
