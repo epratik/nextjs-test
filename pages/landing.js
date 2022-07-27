@@ -8,10 +8,10 @@ const Landing = (props) => {
 
   return (
     <div className="container py-4">
-      {/* <header class="pb-3 mb-4 border-bottom">
-          <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94" role="img"><title>Bootstrap</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg>
-            <span class="fs-4">GREPIN</span>
+      {/* <header className="pb-3 mb-4 border-bottom">
+          <a href="/" className="d-flex align-items-center text-dark text-decoration-none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" className="me-2" viewBox="0 0 118 94" role="img"><title>Bootstrap</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg>
+            <span className="fs-4">GREPIN</span>
           </a>
         </header> */}
 
@@ -38,7 +38,7 @@ const Landing = (props) => {
             <h1 className="display-5 fw-bold">
               Create a website for your youtube channel
             </h1>
-            {/* <ul class="entry-content fs-4" style={{"list-style-type": "circle"}}>
+            {/* <ul className="entry-content fs-4" style={{"list-style-type": "circle"}}>
               <li>Explore our categories to find and rate top content.</li>
               <li>Share curated lists on social media.</li>
               <li>Easy affiliate marketing, share lists of products.</li>
@@ -86,9 +86,9 @@ const Landing = (props) => {
             className="card display-6 text-center text-white bg-dark mb-3 ms-5"
             style={{ width: "30rem" }}
           >
-            <div class="card-body">
-              {/* <h5 class="card-title">Step 2</h5> */}
-              <p class="card-text">2. Choose a sub-domain</p>
+            <div className="card-body">
+              {/* <h5 className="card-title">Step 2</h5> */}
+              <p className="card-text">2. Choose a sub-domain</p>
             </div>
           </div>
 
@@ -96,9 +96,9 @@ const Landing = (props) => {
             className="card display-6 text-left text-white bg-secondary"
             style={{ width: "30rem" }}
           >
-            <div class="card-body">
-              {/* <h5 class="card-title">Step 3</h5> */}
-              <p class="card-text">
+            <div className="card-body">
+              {/* <h5 className="card-title">Step 3</h5> */}
+              <p className="card-text">
                 3. Click submit
               </p>
             </div>
@@ -109,8 +109,8 @@ const Landing = (props) => {
             className="card fs-3 text-white bg-dark"
             style={{ width: "35rem" }}
           >
-            <div class="card-body">
-              <h5 class=" text-center fs-1 card-title">Why Us?</h5>
+            <div className="card-body">
+              <h5 className=" text-center fs-1 card-title">Why Us?</h5>
               <ul>
     <li>No hassel to maintain a domain</li>
     <li>6 months free</li>
@@ -120,42 +120,42 @@ const Landing = (props) => {
             </div>
           </div>  
 
-          {/* <div class="list-group">
+          {/* <div className="list-group">
             <a
-              class="list-group-item list-group-item-action active"
+              className="list-group-item list-group-item-action active"
               aria-current="true"
             >
-              <div class="d-flex w-100 justify-content-between">
-                <h5 class="display-6">Why Content Hub?</h5>
+              <div className="d-flex w-100 justify-content-between">
+                <h5 className="display-6">Why Content Hub?</h5>
               </div>
             </a>
-            <a class="list-group-item list-group-item-action list-group-item-light">
-              <div class="d-flex w-100 justify-content-between">
-                <p class="fs-5">No hassel of buying and maintaining a domain</p>
+            <a className="list-group-item list-group-item-action list-group-item-light">
+              <div className="d-flex w-100 justify-content-between">
+                <p className="fs-5">No hassel of buying and maintaining a domain</p>
               </div>
             </a>
-            <a class="list-group-item list-group-item-action list-group-item-warning">
-              <div class="d-flex w-100 justify-content-between">
-                <p class="fs-5">
+            <a className="list-group-item list-group-item-action list-group-item-warning">
+              <div className="d-flex w-100 justify-content-between">
+                <p className="fs-5">
                   Increase traffic to your channel with a few clicks
                 </p>
               </div>
             </a>
-            <a class="list-group-item list-group-item-action list-group-item-light">
-              <div class="d-flex w-100 justify-content-between">
-                <p class="fs-5">
+            <a className="list-group-item list-group-item-action list-group-item-light">
+              <div className="d-flex w-100 justify-content-between">
+                <p className="fs-5">
                   Do not have to pay or spend time to create a custom site
                 </p>
               </div>
             </a>
-            <a class="list-group-item list-group-item-action list-group-item-warning">
-              <div class="d-flex w-100 justify-content-between">
-                <p class="fs-5">Better SEO performance</p>
+            <a className="list-group-item list-group-item-action list-group-item-warning">
+              <div className="d-flex w-100 justify-content-between">
+                <p className="fs-5">Better SEO performance</p>
               </div>
             </a>
-            <a class="list-group-item list-group-item-action list-group-item-light">
-              <div class="d-flex w-100 justify-content-between">
-                <p class="fs-5">Free for the first 6 months</p>
+            <a className="list-group-item list-group-item-action list-group-item-light">
+              <div className="d-flex w-100 justify-content-between">
+                <p className="fs-5">Free for the first 6 months</p>
               </div>
             </a>
           </div> */}
