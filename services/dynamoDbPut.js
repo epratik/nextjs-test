@@ -5,11 +5,12 @@ import {
 } from "../services/TokenService";
 import AWS from "aws-sdk";
 import { resolveHref } from "next/dist/shared/lib/router/router";
+import awsconfig from '../config/awsconfig.json'
 
-const userPoolId = "us-west-2_fWe5tW92W";
-const clientId = "3n8d7fi84on54qibc1eac90qn4";
-const identityPoolId = "us-west-2:f993f885-a9bb-486b-bd48-3ec2fc9a747b";
-const region = "us-west-2";
+const userPoolId = awsconfig.userPoolId
+const clientId = awsconfig.userPoolWebClientId
+const identityPoolId = awsconfig.identityPoolId
+const region = awsconfig.region
 
 export async function putdata(item) {
   var jwt = await getJwtToken();
@@ -104,8 +105,8 @@ export async function getSiteData(pk) {
     AWS.config.region = region;
     AWS.config.update({
       region: "us-west-2",
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      // accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      // secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     });
     // Instantiate aws sdk service objects now that the credentials have been updated
     var docClient = new AWS.DynamoDB.DocumentClient();

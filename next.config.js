@@ -14,6 +14,17 @@ const nextConfig = {
         permanent: true,
         destination: '/home',
       },
+      {
+        source: '/',
+        has: [
+          {
+            type: 'host',
+            value: 'contenhub',
+          },
+        ],
+        permanent: true,
+        destination: '/home',
+      },
     ]
 }
 }

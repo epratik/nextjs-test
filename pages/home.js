@@ -1,6 +1,7 @@
 
 import Render from './render'
 import Create from './create'
+import Landing from './landing'
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import styles from '../styles/Home.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -37,7 +38,12 @@ export default function Home() {
       ssr:true
     })
     
+    console.log('listen hub started')
     Hub.listen('auth', ({ payload: { event, data } }) => {
+
+      console.log('inside hub started')
+      console.log(event)
+      console.log(data)
         switch (event) {
             case 'signIn':
                 console.log('sign in - case', event, data)
@@ -58,7 +64,8 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      {!isLoggedIn && <Button className="btn btn-primary" onClick={() => Auth.federatedSignIn()}>Sign In</Button>}
+      {!isLoggedIn && <Landing></Landing> }
+      {/* {!isLoggedIn && <Button className="btn btn-primary" onClick={() => Auth.federatedSignIn()}>Sign In</Button>} */}
       {isLoggedIn && <Create></Create>}
     </div>
   )
