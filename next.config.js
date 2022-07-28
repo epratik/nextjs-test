@@ -19,7 +19,18 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'contenhub',
+            value: 'contenhub.com',
+          },
+        ],
+        permanent: true,
+        destination: '/home',
+      },
+      {
+        source: '/',
+        has: [
+          {
+            type: 'host',
+            value: 'www.contenhub.com',
           },
         ],
         permanent: true,

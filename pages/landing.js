@@ -1,5 +1,7 @@
 import { Auth } from "aws-amplify";
 import React from "react";
+// import landingimg from './landing.jpg'
+// import landing6img from './landing6.jpg'
 
 const Landing = (props) => {
   const callSignIn = () => {
@@ -25,7 +27,7 @@ const Landing = (props) => {
             backgroundColor: "#E4E4E4",
             height: "100vh",
             color: "#FFFFFF",
-            backgroundImage: `url(landing.jpg)`,
+            backgroundImage: `url(/landing.jpg)`,
             backgroundSize: "cover",
           }}
         >
@@ -64,7 +66,7 @@ const Landing = (props) => {
             backgroundColor: "#E4E4E4",
             height: "100vh",
             color: "#FFFFFF",
-            backgroundImage: `url(landing6.jpg)`,
+            backgroundImage: `url(/landing6.jpg)`,
             backgroundSize: "cover",
           }}
         >
