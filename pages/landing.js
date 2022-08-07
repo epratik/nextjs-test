@@ -1,7 +1,5 @@
 import { Auth } from "aws-amplify";
 import React from "react";
-const landing1img = "/landing1.jpg";
-const landing6img = "/landing6.jpg";
 import Image from "next/image";
 
 const Landing = (props) => {
