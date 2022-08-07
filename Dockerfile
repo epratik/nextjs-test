@@ -47,6 +47,7 @@ CMD ["google-chrome-stable"]
 
 USER root
 WORKDIR /app
+COPY --from=stage1 ./app/public ./public
 COPY --from=stage1 ./app/.next ./.next
 #NOT COPIED .ENV FILE - ENVIROMENT VAR NEEDS TO BE PASSED IN DOCKER RUN COMMAND
 
