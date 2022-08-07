@@ -1,7 +1,8 @@
 import { Auth } from "aws-amplify";
 import React from "react";
-const landing1img = '/landing1.jpg'
-const landing6img = '/landing6.jpg'
+const landing1img = "/landing1.jpg";
+const landing6img = "/landing6.jpg";
+import Image from "next/image";
 
 const Landing = (props) => {
   const callSignIn = () => {
@@ -21,36 +22,22 @@ const Landing = (props) => {
         className="row align-items-md-stretch "
         style={{ "max-height": "100vh" }}
       >
-        <div
-          className="col-md-6 p-5 border rounded-3 blur"
-          style={{
-            backgroundColor: "#E4E4E4",
-            height: "100vh",
-            color: "#FFFFFF",
-            backgroundImage: `url(${landing1img})`,
-            backgroundSize: "cover",
-          }}
-        >
+        <div className="col-md-6 p-5 border rounded-3 blur" style={{"position":"relative"}}>
+          <Image
+            className="bgWrap"
+            src="/landing1.jpg"
+            layout="fill"
+            objectFit="cover"
+          />
           <br />
           <br />
           <br />
           <br />
           <br />
           <div className="py-5">
-            <h1 className="display-5 fw-bold">
+            <h1 className="display-5 fw-bold  text-white ">
               Website for your youtube channel in 3 steps
             </h1>
-            {/* <ul className="entry-content fs-4" style={{"list-style-type": "circle"}}>
-              <li>Explore our categories to find and rate top content.</li>
-              <li>Share curated lists on social media.</li>
-              <li>Easy affiliate marketing, share lists of products.</li>
-              </ul> */}
-            {/* <p className="fs-4">
-              Contact us at{" "}
-              <small>
-                <b>conten.help@gmail.com</b>
-              </small>
-            </p> */}
             <button
               onClick={callSignIn}
               className="btn btn-primary btn-lg"
@@ -60,7 +47,14 @@ const Landing = (props) => {
             </button>
           </div>
         </div>
-        <div
+        <div className="col-md-6 p-5 border rounded-3 blur" style={{"position":"relative"}}>
+          <Image
+            src="/landing6.jpg"
+            layout="fill"
+            objectFit="cover"
+          />
+
+          {/* <div
           className="col-md-6 p-5 border rounded-3 blur "
           style={{
             backgroundColor: "#E4E4E4",
@@ -69,7 +63,7 @@ const Landing = (props) => {
             backgroundImage: `url(${landing6img})`,
             backgroundSize: "cover",
           }}
-        >
+        > */}
           {/* <h1 className="title text-dark display-5 fw-bold">3 easy steps</h1> */}
           {/* <br/> */}
           <div
@@ -78,9 +72,7 @@ const Landing = (props) => {
           >
             <div className="card-body">
               {/* <h5 className="card-title">Step 1</h5> */}
-              <p className="card-text">
-                1. Fill up a short form.
-              </p>
+              <p className="card-text">1. Fill up a short form.</p>
             </div>
           </div>
 
@@ -100,27 +92,27 @@ const Landing = (props) => {
           >
             <div className="card-body">
               {/* <h5 className="card-title">Step 3</h5> */}
-              <p className="card-text">
-                3. Click submit
-              </p>
+              <p className="card-text">3. Click submit</p>
             </div>
-          </div>          
-           <br/>
+          </div>
+          <br />
 
-           <div
+          <div
             className="card fs-3 text-white bg-dark"
             style={{ width: "35rem" }}
           >
             <div className="card-body">
               <h5 className=" text-center fs-1 card-title">Why Us?</h5>
               <ul>
-    <li>No hassel to maintain a domain</li>
-    <li>6 months free</li>
-    <li>Better SEO performance</li>
-    <li>Do not have to pay or spend time to create a custom site</li>
-  </ul>
+                <li>No hassel to maintain a domain</li>
+                <li>6 months free</li>
+                <li>Better SEO performance</li>
+                <li>
+                  Do not have to pay or spend time to create a custom site
+                </li>
+              </ul>
             </div>
-          </div>  
+          </div>
 
           {/* <div className="list-group">
             <a
