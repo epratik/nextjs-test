@@ -3,6 +3,8 @@
 FROM node:14-slim AS stage1
 ENV NODE_ENV local
 WORKDIR /app
+
+RUN ls
 # ADD *.crt /usr/local/share/ca-certificates/
 # RUN apk update && apk add ca-certificates && rm -rf /var/cache/apk/*
 
@@ -49,11 +51,13 @@ CMD ["google-chrome-stable"]
 
 USER root
 WORKDIR /app
+
+RUN ls
 # COPY --from=stage1 . ./app
-COPY --from=stage1 /app/next.config.js ./app
-COPY --from=stage1 /app/public ./app/public
-COPY --from=stage1 /app/.next ./app/.next
-COPY --from=stage1 /app/package*.json ./app
+COPY --from=stage1 /app/next.config.js .
+COPY --from=stage1 /app/public ./public
+COPY --from=stage1 /app/.next ./.next
+COPY --from=stage1 /app/package*.json .
 
 RUN ls
 # COPY --from=stage1 /app/node_modules ./node_modules
