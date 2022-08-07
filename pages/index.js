@@ -4,8 +4,8 @@ import "../styles/Render.module.css";
 import { LinkPreviewService } from "../services/LinkPreviewService";
 import { getSiteData } from "../services/dynamoDbPut";
 import contactus from "../public/contactus.jpg";
-import landing from "../public/landing.jpg";
-import landing6 from "../public/landing6.jpg";
+// import landing from "../public/landing.jpg";
+// import landing6 from "../public/landing6.jpg";
 
 export async function getServerSideProps({ req }) {
   const subdomain = req.headers.host.split(".")[0];

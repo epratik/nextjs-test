@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Render.module.css";
 import { LinkPreviewService } from "../services/LinkPreviewService";
 import { getSiteData } from "../services/dynamoDbPut";
-import contactus from "../public/contactus.jpg";
+const contactus = "/contactus.jpg";
 
 export async function getServerSideProps({ req }) {
 
@@ -190,7 +190,7 @@ const Render = (props) => {
       <div className="card mb-3" >
         <div className="row g-0">
           <div className="col-md-4">
-            <img src="../contactus.jpg" className="img-fluid rounded-start" alt="..." />
+            <img src="contactus" className="img-fluid rounded-start" alt="..." />
           </div>
           <div className="col-md-8">
             <div className="card-body">
