@@ -9,6 +9,8 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
 RUN update-ca-certificates
 COPY . /app
+
+RUN ls
 # RUN npm config set strict-ssl=false
 RUN npm install
 RUN npm run build
@@ -47,8 +49,15 @@ CMD ["google-chrome-stable"]
 
 USER root
 WORKDIR /app
-COPY --from=stage1 ./app/public ./public
-COPY --from=stage1 ./app/.next ./.next
+# COPY --from=stage1 . ./app
+COPY --from=stage1 /app/next.config.js ./app
+COPY --from=stage1 /app/public ./app/public
+COPY --from=stage1 /app/.next ./app/.next
+COPY --from=stage1 /app/package*.json ./app
+
+RUN ls
+# COPY --from=stage1 /app/node_modules ./node_modules
+# COPY --from=stage1 ./app/.next ./.next
 #NOT COPIED .ENV FILE - ENVIROMENT VAR NEEDS TO BE PASSED IN DOCKER RUN COMMAND
 
 # COPY src/certificates /app
