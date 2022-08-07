@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    domains: ['localhost','contenhub.com'],
+  },
   reactStrictMode: true,
   async redirects() {
     return [
