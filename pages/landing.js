@@ -1,6 +1,8 @@
 import { Auth } from "aws-amplify";
 import React from "react";
 import Image from "next/image";
+import l1 from "../public/landing1.jpg"
+import l6 from "../public/landing6.jpg"
 
 const Landing = (props) => {
   const callSignIn = () => {
@@ -23,7 +25,7 @@ const Landing = (props) => {
         <div className="col-md-6 p-5 border rounded-3 blur" style={{"position":"relative"}}>
           <Image
             className="bgWrap"
-            src="/landing1.jpg"
+            src={l1}
             layout="fill"
             objectFit="cover"
           />
@@ -47,7 +49,7 @@ const Landing = (props) => {
         </div>
         <div className="col-md-6 p-5 border rounded-3 blur" style={{"position":"relative"}}>
           <Image
-            src="/landing6.jpg"
+            src={l6}
             layout="fill"
             objectFit="cover"
           />
