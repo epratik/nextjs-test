@@ -57,7 +57,7 @@ RUN ls
 COPY --from=stage1 /app/next.config.js .
 COPY --from=stage1 /app/public ./public
 COPY --from=stage1 /app/.next ./.next
-COPY --from=stage1 /app/package*.json .
+COPY --from=stage1 /app/package*.json ./
 
 RUN ls
 # COPY --from=stage1 /app/node_modules ./node_modules
