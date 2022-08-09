@@ -71,4 +71,4 @@ RUN npm config set strict-ssl=false
 RUN npm install --only=production
 # RUN rm -f .npmrc
 EXPOSE 80
-CMD ["npm run","dev"]
+CMD ["npm","start"]
