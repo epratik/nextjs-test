@@ -19,7 +19,8 @@
     "react": "18.1.0",
     "react-bootstrap": "^2.4.0",
     "react-dom": "18.1.0",
-    "react-easy-crop": "^4.2.0"
+    "react-easy-crop": "^4.2.0",
+    "sharp": "^0.30.7"
   },
   "devDependencies": {
     "eslint": "8.14.0",
