@@ -24,10 +24,10 @@ const Landing = (props) => {
       >
         <div className="col-md-6 p-5 border rounded-3 blur" style={{"position":"relative"}}>
           <Image
-            className="bgWrap"
             src={l1}
             layout="fill"
             objectFit="cover"
+            className="bgWrap"
           />
           <br />
           <br />
@@ -41,6 +41,8 @@ const Landing = (props) => {
             <button
               onClick={callSignIn}
               className="btn btn-primary btn-lg"
+              style={{"display":"inline-block",
+                "position":"relative"}}
               type="button"
             >
               Sign Up Now
