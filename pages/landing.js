@@ -70,7 +70,6 @@ const Landing = (props) => {
           {/* <br/> */}
           <div
             className="card display-6 text-left text-white bg-secondary mb-3"
-            style={{ width: "30rem" }}
           >
             <div className="card-body">
               {/* <h5 className="card-title">Step 1</h5> */}
@@ -80,7 +79,6 @@ const Landing = (props) => {
 
           <div
             className="card display-6 text-center text-white bg-dark mb-3 ms-5"
-            style={{ width: "30rem" }}
           >
             <div className="card-body">
               {/* <h5 className="card-title">Step 2</h5> */}
@@ -90,7 +88,6 @@ const Landing = (props) => {
 
           <div
             className="card display-6 text-left text-white bg-secondary"
-            style={{ width: "30rem" }}
           >
             <div className="card-body">
               {/* <h5 className="card-title">Step 3</h5> */}
@@ -101,7 +98,6 @@ const Landing = (props) => {
 
           <div
             className="card fs-3 text-white bg-dark"
-            style={{ width: "35rem" }}
           >
             <div className="card-body">
               <h5 className=" text-center fs-1 card-title">Why Us?</h5>

@@ -78,6 +78,7 @@ const Create = (props) => {
       webData.sub_id +
       "/profile.jpg";
 
+    webData.creationDate = Date.now()
     console.log(webData);
     await putdata(webData);
     setSaveStatus(
