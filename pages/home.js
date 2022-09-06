@@ -46,7 +46,16 @@ export default function Home() {
       console.log(data)
         switch (event) {
             case 'signIn':
-                console.log('sign in - case', event, data)
+                console.log('sign in - case 1', event, data)
+                const user = await Amplify.Auth.currentAuthenticatedUser()
+                console.log(user)
+                setLoggedIn(true)
+                //props.history.push('/home')
+                break
+            case 'cognitoHostedUI':
+                console.log('sign in - case 2', event, data)
+                const user2 = await Amplify.Auth.currentAuthenticatedUser()
+                console.log(user2)
                 setLoggedIn(true)
                 //props.history.push('/home')
                 break
