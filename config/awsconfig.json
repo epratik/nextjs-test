@@ -6,7 +6,7 @@
       "userPoolWebClientId": "urig9e26269bvd8o1j6njfdt4",
       "mandatorySignIn": false,
       "cookieStorage": {
-        "domain":"contenhub",
+        "domain":"contenhub.com",
         "path": "/",
         "expires": 365,
         "secure": true

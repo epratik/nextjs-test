@@ -35,7 +35,7 @@ export default function Home() {
           bucket: 'nx-dev-demo-s3', //REQUIRED -  Amazon S3 bucket name
           region: 'us-west-2', //OPTIONAL -  Amazon service region
       }},
-      // ssr:true
+      ssr:true
     })
     
     async function getUser() {
@@ -82,7 +82,7 @@ export default function Home() {
     <div className={styles.container}>
       {!isLoggedIn && <Landing></Landing> }
       {/* {!isLoggedIn && <Button className="btn btn-primary" onClick={() => Auth.federatedSignIn()}>Sign In</Button>} */}
-      {/* {isLoggedIn && <Create></Create>} */}
+      {isLoggedIn && <Create></Create>}
     </div>
   )
 }
