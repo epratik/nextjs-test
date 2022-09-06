@@ -35,7 +35,7 @@ export default function Home() {
           bucket: 'nx-dev-demo-s3', //REQUIRED -  Amazon S3 bucket name
           region: 'us-west-2', //OPTIONAL -  Amazon service region
       }},
-      ssr:true
+      // ssr:true
     })
     
     async function getUser() {
