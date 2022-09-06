@@ -64,7 +64,7 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      {/* {!isLoggedIn && <Landing></Landing> } */}
+      {!isLoggedIn && <Landing></Landing> }
       {/* {!isLoggedIn && <Button className="btn btn-primary" onClick={() => Auth.federatedSignIn()}>Sign In</Button>} */}
       {/* {isLoggedIn && <Create></Create>} */}
     </div>
