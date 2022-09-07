@@ -1,6 +1,7 @@
 
-const puppeteer = require("puppeteer");
-// const pluginStealth = require("puppeteer-extra-plugin-stealth");
+// const puppeteer = require("puppeteer");
+const pluginStealth = require("puppeteer-extra-plugin-stealth");
+const puppeteer = require("puppeteer-extra");
 
 export class LinkPreviewService   {
     browser = undefined;
@@ -11,6 +12,7 @@ export class LinkPreviewService   {
 
             const obj = await puppeteer.launch({ headless: true,dumpio: true, args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage','--single-process'] });
             this.browser = obj;
+            puppeteer.use(pluginStealth());
             return this;
         })();
     }
