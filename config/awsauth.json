@@ -7,7 +7,7 @@
       "openid",
       "aws.cognito.signin.user.admin"
     ],
-    "redirectSignIn": "https://contenhub.com/home",
-    "redirectSignOut": "https://contenhub.com/home",
+    "redirectSignIn": "https://stogly.com/home",
+    "redirectSignOut": "https://stogly.com/home",
     "responseType": "code"
 }

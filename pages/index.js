@@ -1,7 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Render.module.css";
-import { LinkPreviewService } from "../services/LinkPreviewService";
 import { getSiteData } from "../services/dynamoDbPut";
 import contactus from "../public/contactus.jpg";
 // import landing from "../public/landing.jpg";
@@ -12,16 +11,17 @@ export async function getServerSideProps({ req }) {
 
   const siteData = await getSiteData(subdomain);
 
-  console.log(siteData);
-  const previewService = await new LinkPreviewService();
-  const pre1 = previewService.getMetaData(siteData.Item.youtube_link1)
-  const pre2 = previewService.getMetaData(siteData.Item.youtube_link2)
-  const pre3 = previewService.getMetaData(siteData.Item.youtube_link3)
-  const pre4 = previewService.getMetaData(siteData.Item.youtube_link4)
+  console.log('************************');
+  console.log(siteData)
+  // const previewService = await new LinkPreviewService();
+  // const pre1 = previewService.getMetaData(siteData.Item.previews.youtube_link1)
+  // const pre2 = previewService.getMetaData(siteData.Item.previews.youtube_link2)
+  // const pre3 = previewService.getMetaData(siteData.Item.previews.youtube_link3)
+  // const pre4 = previewService.getMetaData(siteData.Item.previews.youtube_link4)
 
-  const previews = await Promise.all([pre1,pre2,pre3,pre4])
+  // const previews = await Promise.all([pre1,pre2,pre3,pre4])
 
-  siteData.previews = previews;
+  // siteData.previews = previews;
   // previews.push(await previewService.getMetaData("https://www.youtube.com/watch?v=_6M4rX-PYzs"))
   // previews.push(await previewService.getMetaData("https://www.youtube.com/watch?v=_6M4rX-PYzs"))
 
@@ -110,51 +110,53 @@ const Render = (props) => {
         </div>
       </div>
       <br />
+      {props.Item.previews && 
       <div className="d-flex">
         <div className="card">
-          <img src={props.previews[0].image} />
+          <img src={props.Item.previews.youtube_link1.image} />
           <div className="card-body">
-            <h5 className="card-title">{props.previews[0].title}</h5>
-            <p className="card-text">{props.previews[0].description}</p>
-            <a href={props.previews[0].url} className="btn btn-primary">
+            <h5 className="card-title">{props.Item.previews.youtube_link1.title}</h5>
+            <p className="card-text">{props.Item.previews.youtube_link1.description}</p>
+            <a href={props.Item.previews.youtube_link1.url} className="btn btn-primary">
               Watch Now
             </a>
           </div>
         </div>
-      </div>
+      </div>}
       <br />
+      {props.Item.previews && 
       <div className="card-group">
         <div className="card">
-          <img src={props.previews[1].image} />
+          <img src={props.Item.previews.youtube_link2.image} />
           <div className="card-body">
-            <h5 className="card-title">{props.previews[1].title}</h5>
-            <p className="card-text">{props.previews[1].description}</p>
-            <a href={props.previews[1].url} className="btn btn-primary">
+            <h5 className="card-title">{props.Item.previews.youtube_link2.title}</h5>
+            <p className="card-text">{props.Item.previews.youtube_link2.description}</p>
+            <a href={props.Item.previews.youtube_link2.url} className="btn btn-primary">
             Watch Now
             </a>
           </div>
         </div>
         <div className="card ms-1">
-          <img src={props.previews[2].image} />
+          <img src={props.Item.previews.youtube_link3.image} />
           <div className="card-body">
-            <h5 className="card-title">{props.previews[2].title}</h5>
-            <p className="card-text">{props.previews[2].description}</p>
-            <a href={props.previews[2].url} className="btn btn-primary">
+            <h5 className="card-title">{props.Item.previews.youtube_link3.title}</h5>
+            <p className="card-text">{props.Item.previews.youtube_link3.description}</p>
+            <a href={props.Item.previews.youtube_link3.url} className="btn btn-primary">
             Watch Now
             </a>
           </div>
         </div>
         <div className="card  ms-1">
-          <img src={props.previews[3].image} />
+          <img src={props.Item.previews.youtube_link4.image} />
           <div className="card-body">
-            <h5 className="card-title">{props.previews[3].title}</h5>
-            <p className="card-text">{props.previews[3].description}</p>
-            <a href={props.previews[3].url} className="btn btn-primary">
+            <h5 className="card-title">{props.Item.previews.youtube_link4.title}</h5>
+            <p className="card-text">{props.Item.previews.youtube_link4.description}</p>
+            <a href={props.Item.previews.youtube_link4.url} className="btn btn-primary">
             Watch Now
             </a>
           </div>
         </div>
-      </div>
+      </div>}
       <br />
       <div className="d-flex">
         <div className="card ">

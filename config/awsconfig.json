@@ -6,13 +6,13 @@
       "userPoolWebClientId": "urig9e26269bvd8o1j6njfdt4",
       "mandatorySignIn": false,
       "cookieStorage": {
-        "domain":"contenhub.com",
+        "domain":"stogly.com",
         "path": "/",
         "expires": 365,
         "secure": true
       },
-      "redirectSignIn": "https://contenhub.com/home",
-      "redirectSignOut": "https://contenhub.com/home"
+      "redirectSignIn": "https://stogly.com/home",
+      "redirectSignOut": "https://stogly.com/home"
     }
 
   

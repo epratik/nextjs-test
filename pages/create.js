@@ -15,6 +15,7 @@ import ModalBody from "react-bootstrap/ModalBody";
 import ModalHeader from "react-bootstrap/ModalHeader";
 import ModalFooter from "react-bootstrap/ModalFooter";
 import ModalTitle from "react-bootstrap/ModalTitle";
+const axios = require('axios').default;
 
 const Create = (props) => {
   const [image, setImage] = useState(null);
@@ -44,6 +45,16 @@ const Create = (props) => {
   };
 
   const clearState = () => {};
+
+  const getPreview = async(url, previewName) =>{
+    const resp = await axios.get('http://localhost:3000/api/preview'+"?url="+ url)
+    if(!webData.previews)
+      webData.previews = {}
+    
+    console.log('****')
+    console.log(webData.previews)
+    webData.previews[previewName] = resp.data
+  }
 
   const uploadCoverToServer = async (event) => {
     setSaveSpinner(true);
@@ -79,6 +90,13 @@ const Create = (props) => {
       "/profile.jpg";
 
     webData.creationDate = Date.now()
+    const pre1 = getPreview(webData.youtube_link1, "youtube_link1")
+    const pre2 = getPreview(webData.youtube_link1, "youtube_link2")
+    const pre3 = getPreview(webData.youtube_link1, "youtube_link3")
+    const pre4 = getPreview(webData.youtube_link1, "youtube_link4")
+
+    const previews = await Promise.all([pre1,pre2,pre3,pre4])
+
     console.log(webData);
     await putdata(webData);
     setSaveStatus(
@@ -371,10 +389,10 @@ const Create = (props) => {
             </div>
             <br />
             <label htmlFor="other_det" className="form-label">
-              Provide the subdomain for your website. Remember this subdomain
+            <em><strong>Note - Provide the subdomain for your website. Remember this subdomain
               value, you will need to provide the same value everytime you
-              modify this site.
-            </label>
+              modify this site.</strong></em>
+            </label> 
             <div className="input-group">
               <span className="input-group-text">www.</span>
               <input
