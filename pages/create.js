@@ -15,10 +15,13 @@ import ModalBody from "react-bootstrap/ModalBody";
 import ModalHeader from "react-bootstrap/ModalHeader";
 import ModalFooter from "react-bootstrap/ModalFooter";
 import ModalTitle from "react-bootstrap/ModalTitle";
+import paths from '../config/paths.json'
 const axios = require('axios').default;
 
 const Create = (props) => {
   const [image, setImage] = useState(null);
+  const [isSaveDisabled, disableSave] = useState(false);
+  const [isError, setIsError ] = useState(false);
   const [webData, setWebData] = useState(null);
   const [fileUploaderName, setFileUploaderName] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(props.url);
@@ -47,7 +50,7 @@ const Create = (props) => {
   const clearState = () => {};
 
   const getPreview = async(url, previewName) =>{
-    const resp = await axios.get('http://localhost:3000/api/preview'+"?url="+ url)
+    const resp = await axios.get(paths.previewPath +"?url="+ url)
     if(!webData.previews)
       webData.previews = {}
 
@@ -56,8 +59,11 @@ const Create = (props) => {
 
   const uploadCoverToServer = async (event) => {
     let uploadData = {}
-
+    try{
+    disableSave(true)
     setSaveSpinner(true);
+    setIsError(false)
+
     setSaveStatus("");
     if (!(await checkIfSiteAvailable(webData.site_name))) {
       setStatusModal(true);
@@ -141,6 +147,13 @@ const Create = (props) => {
     );
     setStatusModal(true);
     setSaveSpinner(false);
+    }
+    catch(err){
+      console.log(err)
+      setSaveSpinner(false);
+      disableSave(false)
+      setIsError(true);
+    }
   };
 
   const setCroppedUrls = async (name, url) => {
@@ -197,7 +210,7 @@ const Create = (props) => {
         fr.readAsDataURL(i);
       }
     }
-  };
+  }
 
   return (
     <div className="container">
@@ -445,6 +458,7 @@ const Create = (props) => {
               className="btn btn-primary"
               type="submit"
               onClick={uploadCoverToServer}
+              disabled= {isSaveDisabled}
             >
               {saveSpinner && (
                 <span
@@ -455,7 +469,8 @@ const Create = (props) => {
               )}
               Generate Web Page
             </button>
-            {saveSpinner && "  ..Please wait.. This may take a while"}
+            {saveSpinner && "   ..Please wait.. This may take a while"}
+            {isError   && "   Error, please try again or email us"}
           </div>
         </div>
       </div>

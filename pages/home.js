@@ -15,6 +15,16 @@ export default function Home() {
   const [isLoggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
+    async function getUser() {
+      const user = await Amplify.Auth.currentAuthenticatedUser()
+      if (user) {
+          setLoggedIn(true);
+      }
+    }
+    getUser()
+  })
+
+  useEffect(() => {
     Amplify.configure({
       Auth:awsconfig,
       oauth: awsauth,
