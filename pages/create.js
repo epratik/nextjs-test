@@ -147,6 +147,7 @@ const Create = (props) => {
     );
     setStatusModal(true);
     setSaveSpinner(false);
+    disableSave(false)
     }
     catch(err){
       console.log(err)
