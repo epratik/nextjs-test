@@ -85,14 +85,14 @@ const Create = (props) => {
       contentType: "image/png",
     });
 
-    
+    uploadData.sub_id = await getIdentityPoolSubId();
     webData.cover_pic =
       "https://nx-dev-demo-s3.s3.us-west-2.amazonaws.com/public/" +
-      webData.sub_id +
+      uploadData.sub_id +
       "/cover.jpg";
     webData.profile_pic =
       "https://nx-dev-demo-s3.s3.us-west-2.amazonaws.com/public/" +
-      webData.sub_id +
+      uploadData.sub_id +
       "/profile.jpg";
     
     const pre1 = getPreview(webData.youtube_link1, "youtubeLink1")
@@ -101,7 +101,6 @@ const Create = (props) => {
     const pre4 = getPreview(webData.youtube_link1, "youtubeLink4")
     const previews = await Promise.all([pre1,pre2,pre3,pre4])
 
-    uploadData.sub_id = await getIdentityPoolSubId();
     uploadData.site_name = webData.site_name
     uploadData.creationDate = Date.now()
     uploadData.pics = {
