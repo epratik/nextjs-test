@@ -3,27 +3,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Render.module.css";
 import { getSiteData } from "../services/dynamoDbPut";
 import contactus from "../public/contactus.jpg";
-// import landing from "../public/landing.jpg";
-// import landing6 from "../public/landing6.jpg";
+import Head from "next/head";
 
 export async function getServerSideProps({ req }) {
   const subdomain = req.headers.host.split(".")[0];
-
   const siteData = await getSiteData(subdomain);
-
-  console.log('************************');
-  console.log(siteData)
-  // const previewService = await new LinkPreviewService();
-  // const pre1 = previewService.getMetaData(siteData.Item.previews.youtube_link1)
-  // const pre2 = previewService.getMetaData(siteData.Item.previews.youtube_link2)
-  // const pre3 = previewService.getMetaData(siteData.Item.previews.youtube_link3)
-  // const pre4 = previewService.getMetaData(siteData.Item.previews.youtube_link4)
-
-  // const previews = await Promise.all([pre1,pre2,pre3,pre4])
-
-  // siteData.previews = previews;
-  // previews.push(await previewService.getMetaData("https://www.youtube.com/watch?v=_6M4rX-PYzs"))
-  // previews.push(await previewService.getMetaData("https://www.youtube.com/watch?v=_6M4rX-PYzs"))
 
   return {
     props: siteData,
@@ -33,11 +17,30 @@ export async function getServerSideProps({ req }) {
 const Render = (props) => {
   return (
     <div className="container col-sm-6">
+        <Head>
+        <meta charSet="utf-8" />
+        <title>{props.Item.headers.header1}</title>
+        <link rel="icon" href={props.Item.pics.pic2} />
+        <meta name="description" content={props.Item.descriptions.desc1} />
+
+        <meta name="theme-color" content="#000000" />
+
+        <meta name="og:type" content="website" />
+        <meta name="og:title" content={props.Item.headers.header1} />
+
+        <meta
+          name="og:url"
+          content={"www."+props.Item.site_name+".stogly.com"}
+        />
+        <meta name="og:description" content={props.Item.descriptions.desc1} />
+        <meta name="og:image" content={props.Item.pics.pic2} />
+      </Head>
+
       <div className="row">
         <div className="">
           <div className="card">
             <img
-              src={props.Item.profile_pic}
+              src={props.Item.pics.pic2}
               className="rounded-circle"
               style={{
                 position: "absolute",
@@ -50,17 +53,17 @@ const Render = (props) => {
             ></img>
             <img
               style={{ height: "23vw", width: "100%" }}
-              src={props.Item.cover_pic}
+              src={props.Item.pics.pic1}
             ></img>
           </div>
         </div>
       </div>
       <br />
       <div className="d-flex">
-        <h4>{props.Item.header_1}</h4>
+        <h4>{props.Item.headers.header1}</h4>
       </div>
       <div className="d-flex">
-        <a href={props.Item.instagram_link}>
+        <a href={props.Item.socialLinks.instagramLink}>
           <img
             className=""
             src="/instagram.png"
@@ -68,7 +71,7 @@ const Render = (props) => {
           ></img>
         </a>
 
-        <a href={props.Item.linkedin_link}>
+        <a href={props.Item.socialLinks.linkedinLink}>
           <img
             className="ms-1"
             src="/linkedin.png"
@@ -76,7 +79,7 @@ const Render = (props) => {
           ></img>
         </a>
 
-        <a href={props.Item.facebook_link}>
+        <a href={props.Item.socialLinks.facebookLink}>
           <img
             className="ms-1"
             src="/facebook.png"
@@ -84,7 +87,7 @@ const Render = (props) => {
           ></img>
         </a>
 
-        <a href={props.Item.twitter_link}>
+        <a href={props.Item.socialLinks.twitterLink}>
           <img
             className="ms-1"
             src="/twitter.png"
@@ -92,7 +95,7 @@ const Render = (props) => {
           ></img>
         </a>
 
-        <a href={props.Item.youtube_link}>
+        <a href={props.Item.socialLinks.youtubeLink}>
           <img
             className="ms-1 rounded"
             src="/youtube.png"
@@ -104,8 +107,8 @@ const Render = (props) => {
       <div className="d-flex">
         <div className="card ">
           <div className="card-body">
-            <h5 className="card-title">{props.Item.header_2}</h5>
-            <p className="card-text fst-italic">{props.Item.abt_me}</p>
+            <h5 className="card-title">{props.Item.headers.header1}</h5>
+            <p className="card-text fst-italic">{props.Item.descriptions.desc1}</p>
           </div>
         </div>
       </div>
@@ -113,11 +116,11 @@ const Render = (props) => {
       {props.Item.previews && 
       <div className="d-flex">
         <div className="card">
-          <img src={props.Item.previews.youtube_link1.image} />
+          <img src={props.Item.previews.youtubeLink1.image} />
           <div className="card-body">
-            <h5 className="card-title">{props.Item.previews.youtube_link1.title}</h5>
-            <p className="card-text">{props.Item.previews.youtube_link1.description}</p>
-            <a href={props.Item.previews.youtube_link1.url} className="btn btn-primary">
+            <h5 className="card-title">{props.Item.previews.youtubeLink1.title}</h5>
+            <p className="card-text">{props.Item.previews.youtubeLink1.description}</p>
+            <a href={props.Item.previews.youtubeLink1.url} className="btn btn-primary">
               Watch Now
             </a>
           </div>
@@ -127,31 +130,31 @@ const Render = (props) => {
       {props.Item.previews && 
       <div className="card-group">
         <div className="card">
-          <img src={props.Item.previews.youtube_link2.image} />
+          <img src={props.Item.previews.youtubeLink2.image} />
           <div className="card-body">
-            <h5 className="card-title">{props.Item.previews.youtube_link2.title}</h5>
-            <p className="card-text">{props.Item.previews.youtube_link2.description}</p>
-            <a href={props.Item.previews.youtube_link2.url} className="btn btn-primary">
+            <h5 className="card-title">{props.Item.previews.youtubeLink2.title}</h5>
+            <p className="card-text">{props.Item.previews.youtubeLink2.description}</p>
+            <a href={props.Item.previews.youtubeLink2.url} className="btn btn-primary">
             Watch Now
             </a>
           </div>
         </div>
         <div className="card ms-1">
-          <img src={props.Item.previews.youtube_link3.image} />
+          <img src={props.Item.previews.youtubeLink3.image} />
           <div className="card-body">
-            <h5 className="card-title">{props.Item.previews.youtube_link3.title}</h5>
-            <p className="card-text">{props.Item.previews.youtube_link3.description}</p>
-            <a href={props.Item.previews.youtube_link3.url} className="btn btn-primary">
+            <h5 className="card-title">{props.Item.previews.youtubeLink3.title}</h5>
+            <p className="card-text">{props.Item.previews.youtubeLink3.description}</p>
+            <a href={props.Item.previews.youtubeLink3.url} className="btn btn-primary">
             Watch Now
             </a>
           </div>
         </div>
         <div className="card  ms-1">
-          <img src={props.Item.previews.youtube_link4.image} />
+          <img src={props.Item.previews.youtubeLink4.image} />
           <div className="card-body">
-            <h5 className="card-title">{props.Item.previews.youtube_link4.title}</h5>
-            <p className="card-text">{props.Item.previews.youtube_link4.description}</p>
-            <a href={props.Item.previews.youtube_link4.url} className="btn btn-primary">
+            <h5 className="card-title">{props.Item.previews.youtubeLink4.title}</h5>
+            <p className="card-text">{props.Item.previews.youtubeLink4.description}</p>
+            <a href={props.Item.previews.youtubeLink4.url} className="btn btn-primary">
             Watch Now
             </a>
           </div>
@@ -161,8 +164,8 @@ const Render = (props) => {
       <div className="d-flex">
         <div className="card ">
           <div className="card-body">
-            <h5 className="card-title"> {props.Item.header_3}</h5>
-            {props.Item.other_det}
+            <h5 className="card-title"> {props.Item.headers.header3}</h5>
+            {props.Item.descriptions.desc2}
           </div>
         </div>
       </div>
@@ -180,9 +183,9 @@ const Render = (props) => {
             <div className="card-body">
               <h5 className="card-title">Contact Us</h5>
               <p className="card-text fst-italic">
-                Email: {props.Item.contact_email} <br />
-                Phone: {props.Item.contact_phone} <br />
-                Address: {props.Item.contact_address} <br />
+                Email: {props.Item.contactInfo.email} <br />
+                Phone: {props.Item.contactInfo.primaryPhone} <br />
+                Address: {props.Item.contactInfo.addressLine1} <br />
               </p>
             </div>
           </div>

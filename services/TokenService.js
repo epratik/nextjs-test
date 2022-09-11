@@ -7,7 +7,6 @@ export async function getTokenAttributes() {
 
 export async function getSub() {
     const cognitoUser = await Amplify.Auth.currentAuthenticatedUser()
-    console.log(cognitoUser.signInUserSession)
     return cognitoUser.signInUserSession.idToken.payload.sub
 }
 

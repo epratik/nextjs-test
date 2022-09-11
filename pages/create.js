@@ -50,13 +50,13 @@ const Create = (props) => {
     const resp = await axios.get('http://localhost:3000/api/preview'+"?url="+ url)
     if(!webData.previews)
       webData.previews = {}
-    
-    console.log('****')
-    console.log(webData.previews)
+
     webData.previews[previewName] = resp.data
   }
 
   const uploadCoverToServer = async (event) => {
+    let uploadData = {}
+
     setSaveSpinner(true);
     setSaveStatus("");
     if (!(await checkIfSiteAvailable(webData.site_name))) {
@@ -79,7 +79,7 @@ const Create = (props) => {
       contentType: "image/png",
     });
 
-    webData.sub_id = await getIdentityPoolSubId();
+    
     webData.cover_pic =
       "https://nx-dev-demo-s3.s3.us-west-2.amazonaws.com/public/" +
       webData.sub_id +
@@ -88,22 +88,56 @@ const Create = (props) => {
       "https://nx-dev-demo-s3.s3.us-west-2.amazonaws.com/public/" +
       webData.sub_id +
       "/profile.jpg";
-
-    webData.creationDate = Date.now()
-    const pre1 = getPreview(webData.youtube_link1, "youtube_link1")
-    const pre2 = getPreview(webData.youtube_link1, "youtube_link2")
-    const pre3 = getPreview(webData.youtube_link1, "youtube_link3")
-    const pre4 = getPreview(webData.youtube_link1, "youtube_link4")
-
+    
+    const pre1 = getPreview(webData.youtube_link1, "youtubeLink1")
+    const pre2 = getPreview(webData.youtube_link1, "youtubeLink2")
+    const pre3 = getPreview(webData.youtube_link1, "youtubeLink3")
+    const pre4 = getPreview(webData.youtube_link1, "youtubeLink4")
     const previews = await Promise.all([pre1,pre2,pre3,pre4])
 
-    console.log(webData);
-    await putdata(webData);
+    uploadData.sub_id = await getIdentityPoolSubId();
+    uploadData.site_name = webData.site_name
+    uploadData.creationDate = Date.now()
+    uploadData.pics = {
+      pic1:webData.cover_pic,
+      pic2:webData.profile_pic
+    }
+    uploadData.previews = webData.previews
+    uploadData.headers = {
+      header1:webData.business_name,
+      header2:webData.header_2,
+      header3:webData.header_3
+    }
+    uploadData.socialLinks = {
+      linkedinLink:webData.linkedin_link,
+      twitterLink:webData.twitter_link,
+      facebookLink:webData.facebook_link,
+      instagramLink:webData.instagram_link,
+      youtubeLink:webData.youtube_link
+    }
+    uploadData.descriptions={
+      desc1:webData.abt_me,
+      desc2:webData.other_det
+    }
+    uploadData.otherLinks = {
+      youtube_link1:webData.youtube_link1,
+      youtube_link2:webData.youtube_link2,
+      youtube_link3:webData.youtube_link3,
+      youtube_link4:webData.youtube_link4
+    }
+    uploadData.contactInfo={
+      primaryPhone:webData.contact_phone,
+      addressLine1:webData.contact_address,
+      email:webData.contact_email
+    }
+
+    console.log(uploadData);
+    await putdata(uploadData);
     setSaveStatus(
       "Site is generated, please visit " +
         "www." +
         webData.site_name +
-        ".contenhub.com"
+        ".stogly.com"
     );
     setStatusModal(true);
     setSaveSpinner(false);
@@ -156,10 +190,8 @@ const Create = (props) => {
       };
 
       if (i) {
-        console.log("create file");
         var fr = new FileReader();
         fr.onload = function () {
-          console.log("inside file onload");
           img.src = fr.result;
         };
         fr.readAsDataURL(i);
@@ -280,7 +312,7 @@ const Create = (props) => {
               <span className="input-group-text">Facebook Profile Link</span>
               <input
                 className="form-control"
-                name="fb_link"
+                name="facebook_link"
                 onChange={(event) => setFields(event)}
               ></input>
             </div>
@@ -307,7 +339,7 @@ const Create = (props) => {
               <span className="input-group-text">Twitter Profile Link</span>
               <input
                 className="form-control"
-                name="youtube_link"
+                name="twitter_link"
                 onChange={(event) => setFields(event)}
               ></input>
             </div>
@@ -316,7 +348,7 @@ const Create = (props) => {
               <span className="input-group-text">Instagram Profile Link</span>
               <input
                 className="form-control"
-                name="insta_link"
+                name="instagram_link"
                 onChange={(event) => setFields(event)}
               ></input>
             </div>
@@ -361,6 +393,9 @@ const Create = (props) => {
               ></input>
             </div>
             <br />
+            <label htmlFor="other_det" className="form-label">
+              Your contact information will be displayed at the bottom.
+            </label>
             <div className="input-group">
               <span className="input-group-text">Contact Email</span>
               <input
@@ -386,12 +421,15 @@ const Create = (props) => {
                 name="contact_address"
                 onChange={(event) => setFields(event)}
               ></input>
-            </div>
-            <br />
-            <label htmlFor="other_det" className="form-label">
+            </div>            
+            <br/>
+            <label htmlFor="other_det" className="form-label text-primary">
             <em><strong>Note - Provide the subdomain for your website. Remember this subdomain
               value, you will need to provide the same value everytime you
               modify this site.</strong></em>
+            </label> 
+            <label className="form-label text-danger ">
+            <em><strong>Contact us at - stogly.help@gmail.com </strong></em>
             </label> 
             <div className="input-group">
               <span className="input-group-text">www.</span>
@@ -400,7 +438,7 @@ const Create = (props) => {
                 name="site_name"
                 onChange={(event) => setFields(event)}
               ></input>
-              <span className="input-group-text">.contenhub.com</span>
+              <span className="input-group-text">.stogly.com</span>
             </div>
             <br />
             <button
@@ -417,6 +455,7 @@ const Create = (props) => {
               )}
               Generate Web Page
             </button>
+            {saveSpinner && "  ..Please wait.. This may take a while"}
           </div>
         </div>
       </div>

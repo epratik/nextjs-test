@@ -109,6 +109,7 @@ const Landing = (props) => {
                   Do not have to pay or spend time to create a custom site
                 </li>
               </ul>
+              Contact us at <em className="text-white">stogly.help@gmail.com</em>
             </div>
           </div>
 

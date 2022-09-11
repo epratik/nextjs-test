@@ -14,18 +14,6 @@ export default function Home() {
 
   const [isLoggedIn, setLoggedIn] = useState(false);
 
-//   useEffect(() => {
-//     async function getUser() {
-//       const user = await Amplify.Auth.currentAuthenticatedUser()
-//       console.log('**inside start of index**')
-//       console.log(user);
-//       if (user) {
-//           setLoggedIn(true);
-//       }
-//     }
-//     getUser();
-// }, []);
-
   useEffect(() => {
     Amplify.configure({
       Auth:awsconfig,
@@ -40,37 +28,30 @@ export default function Home() {
     
     async function getUser() {
       const user = await Amplify.Auth.currentAuthenticatedUser()
-      console.log('**inside start of index**')
-      console.log(user);
       if (user) {
           setLoggedIn(true);
       }
     }
 
-    console.log('listen hub started')
+    
     Hub.listen('auth', ({ payload: { event, data } }) => {
-
-      console.log('inside hub started')
-      console.log(event)
-      console.log(data)
         switch (event) {
             case 'signIn':
-                console.log('sign in - case 1', event, data)
+                
                 setLoggedIn(true)
                 getUser()
-                //props.history.push('/home')
+                
                 break
             case 'cognitoHostedUI':
-                console.log('sign in - case 2', event, data)
+                
                 setLoggedIn(true)
                 getUser()
-                //props.history.push('/home')
+                
                 break
             case 'signOut':
-                console.log('sign out')
+                
                 setLoggedIn(false);
-                //props.history.push('/')
-                // this.setState({ user: null })
+                
                 break
             default:
                 break

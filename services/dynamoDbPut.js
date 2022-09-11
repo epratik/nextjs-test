@@ -32,7 +32,6 @@ export async function putdata(item) {
     AWS.config.credentials.get(async function (err) {
       if (!err) {
         var id = AWS.config.credentials.identityId;
-        console.log("Cognito Identity ID " + id);
 
         // Instantiate aws sdk service objects now that the credentials have been updated
         var docClient = new AWS.DynamoDB.DocumentClient({
@@ -46,7 +45,7 @@ export async function putdata(item) {
       }
     });
   } catch (e) {
-    console.log(e);
+    
     return;
   }
 }
@@ -95,7 +94,6 @@ export async function checkIfSiteAvailable(siteName) {
       return false;
     } else return true;
   } catch (e) {
-    console.log(e);
     return;
   }
 }
@@ -127,7 +125,6 @@ export async function getSiteData(pk) {
     const val = await docClient.get(params).promise();
     return val;
   } catch (e) {
-    console.log(e);
     return;
   }
 }

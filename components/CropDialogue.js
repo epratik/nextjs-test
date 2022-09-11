@@ -72,7 +72,6 @@ const CropDialogue = (props) => {
 
       props.setImageUrl(null)
       props.setCroppedImgPath(croppedImage);
-      console.log(croppedImage)
       props.setCroppedUrls(props.fileUploaderName, croppedImage)
     } catch (e) {
       console.error(e);
