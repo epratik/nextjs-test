@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost','contenhub.com'],
+    domains: ['localhost','stogly.com'],
   },
   reactStrictMode: true,
   async redirects() {
@@ -22,7 +22,7 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'contenhub.com',
+            value: 'stogly.com',
           },
         ],
         permanent: true,
@@ -33,7 +33,7 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'www.contenhub.com',
+            value: 'www.stogly.com',
           },
         ],
         permanent: true,

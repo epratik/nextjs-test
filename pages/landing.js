@@ -103,7 +103,7 @@ const Landing = (props) => {
               <h5 className=" text-center fs-1 card-title">Why Us?</h5>
               <ul>
                 <li>No hassel to maintain a domain</li>
-                <li>6 months free</li>
+                <li>1 month free</li>
                 <li>Better SEO performance</li>
                 <li>
                   Do not have to pay or spend time to create a custom site
