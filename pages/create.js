@@ -96,9 +96,9 @@ const Create = (props) => {
       "/profile.jpg";
     
     const pre1 = getPreview(webData.youtube_link1, "youtubeLink1")
-    const pre2 = getPreview(webData.youtube_link1, "youtubeLink2")
-    const pre3 = getPreview(webData.youtube_link1, "youtubeLink3")
-    const pre4 = getPreview(webData.youtube_link1, "youtubeLink4")
+    const pre2 = getPreview(webData.youtube_link2, "youtubeLink2")
+    const pre3 = getPreview(webData.youtube_link3, "youtubeLink3")
+    const pre4 = getPreview(webData.youtube_link4, "youtubeLink4")
     const previews = await Promise.all([pre1,pre2,pre3,pre4])
 
     uploadData.site_name = webData.site_name
