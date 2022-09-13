@@ -37,8 +37,19 @@ const nextConfig = {
           },
         ],
         permanent: true,
-        destination: '/home',
+        destination: 'https://stogly.com/home',
       },
+      {
+        source: '/home',
+        has: [
+          {
+            type: 'host',
+            value: 'www.stogly.com',
+          },
+        ],
+        permanent: true,
+        destination: 'https://stogly.com/home',
+      }
     ]
 }
 }
