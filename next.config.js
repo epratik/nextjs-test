@@ -11,7 +11,7 @@ const nextConfig = {
         has: [
           {
             type: 'host',
-            value: 'localhost',
+            value: 'localhost:3000',
           },
         ],
         permanent: true,
