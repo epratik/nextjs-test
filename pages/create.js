@@ -140,7 +140,7 @@ const Create = (props) => {
     await putdata(uploadData);
     setSaveStatus(
       "Site is generated, please visit " +
-        "www." +
+        "https://" +
         webData.site_name +
         ".stogly.com"
     );
