@@ -215,7 +215,7 @@ const Create = (props) => {
   return (
     <div className="container">
       <div className="row justify-content-md-center">
-        <div className="col-6">
+        <div className="col-md-6">
           {createObjectURL && (
             <CropDialogue
               setCroppedImgPath={setCroppedImgPath}
@@ -445,7 +445,7 @@ const Create = (props) => {
             <em><strong>Contact us at - stogly.help@gmail.com </strong></em>
             </label> 
             <div className="input-group">
-              <span className="input-group-text">www.</span>
+              <span className="input-group-text">https://</span>
               <input
                 className="form-control"
                 name="site_name"
