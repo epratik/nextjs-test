@@ -17,7 +17,7 @@ export async function getServerSideProps({ req }) {
 const Render = (props) => {
   return (
     <div className="container col-sm-6">
-        <Head>
+      <Head>
         <meta charSet="utf-8" />
         <title>{props.Item.headers.header1}</title>
         <link rel="icon" href={props.Item.pics.pic2} />
@@ -30,7 +30,7 @@ const Render = (props) => {
 
         <meta
           name="og:url"
-          content={"www."+props.Item.site_name+".stogly.com"}
+          content={"www." + props.Item.site_name + ".stogly.com"}
         />
         <meta name="og:description" content={props.Item.descriptions.desc1} />
         <meta name="og:image" content={props.Item.pics.pic2} />
@@ -47,23 +47,28 @@ const Render = (props) => {
                 top: "90%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                width: "200px",
-                height: "200px",
+                width: "20vh",
+                height: "20vh",
               }}
             ></img>
             <img
-              style={{ height: "23vw", width: "100%" }}
+              style={{ height: "40vh", width: "100%" }}
               src={props.Item.pics.pic1}
             ></img>
           </div>
         </div>
       </div>
       <br />
+      <br />
       <div className="d-flex">
         <h4>{props.Item.headers.header1}</h4>
       </div>
       <div className="d-flex">
-        <a href={props.Item.socialLinks.instagramLink}>
+        <a
+          href={props.Item.socialLinks.instagramLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             className=""
             src="/instagram.png"
@@ -71,7 +76,11 @@ const Render = (props) => {
           ></img>
         </a>
 
-        <a href={props.Item.socialLinks.linkedinLink}>
+        <a
+          href={props.Item.socialLinks.linkedinLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             className="ms-1"
             src="/linkedin.png"
@@ -79,7 +88,11 @@ const Render = (props) => {
           ></img>
         </a>
 
-        <a href={props.Item.socialLinks.facebookLink}>
+        <a
+          href={props.Item.socialLinks.facebookLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             className="ms-1"
             src="/facebook.png"
@@ -87,7 +100,11 @@ const Render = (props) => {
           ></img>
         </a>
 
-        <a href={props.Item.socialLinks.twitterLink}>
+        <a
+          href={props.Item.socialLinks.twitterLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             className="ms-1"
             src="/twitter.png"
@@ -95,7 +112,11 @@ const Render = (props) => {
           ></img>
         </a>
 
-        <a href={props.Item.socialLinks.youtubeLink}>
+        <a
+          href={props.Item.socialLinks.youtubeLink}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             className="ms-1 rounded"
             src="/youtube.png"
@@ -108,58 +129,117 @@ const Render = (props) => {
         <div className="card ">
           <div className="card-body">
             <h5 className="card-title">{props.Item.headers.header2}</h5>
-            <p className="card-text fst-italic">{props.Item.descriptions.desc1}</p>
+            <p className="card-text fst-italic">
+              {props.Item.descriptions.desc1}
+            </p>
           </div>
         </div>
       </div>
       <br />
-      {props.Item.previews && 
-      <div className="d-flex">
-        <div className="card">
-          <img src={props.Item.previews.youtubeLink1.image} />
-          <div className="card-body">
-            <h5 className="card-title">{props.Item.previews.youtubeLink1.title}</h5>
-            <p className="card-text">{props.Item.previews.youtubeLink1.description}</p>
-            <a href={props.Item.previews.youtubeLink1.url} className="btn btn-primary">
-              Watch Now
-            </a>
+      {props.Item.previews && (
+        <div className="d-flex">
+          <div className="card">
+            <img
+              src={props.Item.previews.youtubeLink1.image}
+              style={{ width: "100%", height: "100%" }}
+            />
+            <div className="card-body">
+              <h5 className="card-title">
+                {props.Item.previews.youtubeLink1.title}
+              </h5>
+              <p className="card-text">
+                {props.Item.previews.youtubeLink1.description}
+              </p>
+              <a
+                href={props.Item.previews.youtubeLink1.url}
+                className="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Watch Now
+              </a>
+            </div>
           </div>
         </div>
-      </div>}
+      )}
       <br />
-      {props.Item.previews && 
-      <div className="card-group">
-        <div className="card">
-          <img src={props.Item.previews.youtubeLink2.image} />
-          <div className="card-body">
-            <h5 className="card-title">{props.Item.previews.youtubeLink2.title}</h5>
-            <p className="card-text">{props.Item.previews.youtubeLink2.description}</p>
-            <a href={props.Item.previews.youtubeLink2.url} className="btn btn-primary">
-            Watch Now
-            </a>
+      {props.Item.previews && (
+        <div className="card-group">
+          <div className="card">
+            <img
+              src={props.Item.previews.youtubeLink2.image}
+              style={{ width: "100%", height: "auto" }}
+            />
+            <div className="card-body">
+              <h5 className="card-title">
+                {props.Item.previews.youtubeLink2.title}
+              </h5>
+              <p className="card-text">
+                {props.Item.previews.youtubeLink2.description}
+              </p>
+            </div>
+            <div class="card-footer bg-white border-0 text-center">
+              <a
+                href={props.Item.previews.youtubeLink2.url}
+                className="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Watch Now
+              </a>
+            </div>
+          </div>
+          <div className="card ms-1">
+            <img
+              src={props.Item.previews.youtubeLink3.image}
+              className=""
+              style={{ width: "100%", height: "auto" }}
+            />
+            <div className="card-body">
+              <h5 className="card-title">
+                {props.Item.previews.youtubeLink3.title}
+              </h5>
+              <p className="card-text">
+                {props.Item.previews.youtubeLink3.description}
+              </p>
+            </div>
+            <div class="card-footer bg-white border-0  text-center">
+              <a
+                href={props.Item.previews.youtubeLink3.url}
+                className="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Watch Now
+              </a>
+            </div>
+          </div>
+          <div className="card  ms-1">
+            <img
+              src={props.Item.previews.youtubeLink4.image}
+              style={{ width: "100%", height: "auto" }}
+            />
+            <div className="card-body">
+              <h5 className="card-title">
+                {props.Item.previews.youtubeLink4.title}
+              </h5>
+              <p className="card-text">
+                {props.Item.previews.youtubeLink4.description}
+              </p>
+            </div>
+            <div class="card-footer bg-white border-0  text-center">
+              <a
+                href={props.Item.previews.youtubeLink4.url}
+                className="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Watch Now
+              </a>
+            </div>
           </div>
         </div>
-        <div className="card ms-1">
-          <img src={props.Item.previews.youtubeLink3.image} />
-          <div className="card-body">
-            <h5 className="card-title">{props.Item.previews.youtubeLink3.title}</h5>
-            <p className="card-text">{props.Item.previews.youtubeLink3.description}</p>
-            <a href={props.Item.previews.youtubeLink3.url} className="btn btn-primary">
-            Watch Now
-            </a>
-          </div>
-        </div>
-        <div className="card  ms-1">
-          <img src={props.Item.previews.youtubeLink4.image} />
-          <div className="card-body">
-            <h5 className="card-title">{props.Item.previews.youtubeLink4.title}</h5>
-            <p className="card-text">{props.Item.previews.youtubeLink4.description}</p>
-            <a href={props.Item.previews.youtubeLink4.url} className="btn btn-primary">
-            Watch Now
-            </a>
-          </div>
-        </div>
-      </div>}
+      )}
       <br />
       <div className="d-flex">
         <div className="card ">
