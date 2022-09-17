@@ -1,4 +1,3 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Render.module.css";
 import { getSiteData } from "../services/dynamoDbPut";
@@ -8,7 +7,6 @@ import Head from "next/head";
 export async function getServerSideProps({ req }) {
   const subdomain = req.headers.host.split(".")[0];
   const siteData = await getSiteData(subdomain);
-
   return {
     props: siteData,
   };
