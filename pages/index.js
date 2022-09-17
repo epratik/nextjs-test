@@ -178,7 +178,7 @@ const Render = (props) => {
                 {props.Item.previews.youtubeLink2.description}
               </p>
             </div>
-            <div class="card-footer bg-white border-0 text-center">
+            <div className="card-footer bg-white border-0 text-center">
               <a
                 href={props.Item.previews.youtubeLink2.url}
                 className="btn btn-primary"
@@ -203,7 +203,7 @@ const Render = (props) => {
                 {props.Item.previews.youtubeLink3.description}
               </p>
             </div>
-            <div class="card-footer bg-white border-0  text-center">
+            <div className="card-footer bg-white border-0  text-center">
               <a
                 href={props.Item.previews.youtubeLink3.url}
                 className="btn btn-primary"
@@ -227,7 +227,7 @@ const Render = (props) => {
                 {props.Item.previews.youtubeLink4.description}
               </p>
             </div>
-            <div class="card-footer bg-white border-0  text-center">
+            <div className="card-footer bg-white border-0  text-center">
               <a
                 href={props.Item.previews.youtubeLink4.url}
                 className="btn btn-primary"
