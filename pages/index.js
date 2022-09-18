@@ -6,7 +6,14 @@ import Head from "next/head";
 
 export async function getServerSideProps({ req }) {
   const subdomain = req.headers.host.split(".")[0];
+  
+  const start = new Date()
+  
   const siteData = await getSiteData(subdomain);
+  
+  const stop = new Date()
+  console.log(`Time Taken to execute = ${(stop - start)/1000} seconds`)
+
   return {
     props: siteData,
   };
