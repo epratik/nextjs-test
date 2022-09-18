@@ -22,6 +22,17 @@ const nextConfig = {
         has: [
           {
             type: 'host',
+            value: 'localhost:8080',
+          },
+        ],
+        permanent: true,
+        destination: '/home',
+      },
+      {
+        source: '/',
+        has: [
+          {
+            type: 'host',
             value: 'stogly.com',
           },
         ],
