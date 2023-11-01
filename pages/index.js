@@ -7,6 +7,8 @@ import Navtara from './navtara'
 
 export async function getServerSideProps({ req }) {
 
+  console.log('*****************************')
+  console.log(req.headers.host)
   let subdomain = req.headers.host.split(".")[0];
   if (subdomain.toLowerCase() == "www") {
     // Split the hostname by dots and take the second part
