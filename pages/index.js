@@ -9,10 +9,11 @@ export async function getServerSideProps({ req }) {
 
   console.log('*****************************')
   console.log(req.headers.host)
+  
   let subdomain = req.headers.host.split(".")[0];
   if (subdomain.toLowerCase() == "www") {
     // Split the hostname by dots and take the second part
-    const parts = hostname.split(".");
+    const parts = req.headers.host.split(".");
     if (parts.length >= 3) {
       subdomain = parts[1];
     } else {
